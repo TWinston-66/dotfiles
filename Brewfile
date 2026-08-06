@@ -1,5 +1,4 @@
 # Shared
-brew "git"
 brew "stow"
 brew "gum"
 brew "zsh"

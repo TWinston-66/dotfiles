@@ -35,7 +35,7 @@ install_homebrew() {
     "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
   if ! load_homebrew; then
-    log_err "Homebrew installed but brew was not found in any known prefix"
+    log_err "Homebrew installed but brew was not found"
     exit 1
   fi
 }

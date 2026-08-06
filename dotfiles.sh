@@ -15,6 +15,7 @@ main() {
     detect_os
     log_title "dotfiles manager — $DOTFILES_OS ${DOTFILES_LINUX_FAMILY:-}"
 
+    sudo_keepalive
     install_native_prereqs
 
     shared_packages
@@ -29,6 +30,11 @@ main() {
 
     log_title "Done"
     log_ok "Machine configured. Restart the terminal."
+}
+
+sudo_keepalive() {
+  sudo -v
+  while true; do sudo -n true; sleep 120; kill -0 "$$" || exit; done 2>/dev/null &
 }
 
 login_shell() {
@@ -58,7 +64,7 @@ set_default_shell() {
   if ! grep -qx "$zsh_path" /etc/shells; then
     echo "$zsh_path" | sudo tee -a /etc/shells >/dev/null
   fi
-  chsh -s "$zsh_path"
+  sudo chsh -s "$zsh_path" "$(id -un)"
 }
 
 

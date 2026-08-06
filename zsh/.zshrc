@@ -36,3 +36,5 @@ alias ll='eza -la --icons'
 alias cat='bat'
 alias g='git'
 alias vim='nvim'
+
+export PATH="$HOME/.local/bin:$PATH"

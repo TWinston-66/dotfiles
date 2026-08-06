@@ -6,10 +6,10 @@ install_linux_apps() {
     log_step "Installing Linux Apps"
     install_manager
     install_zed_linux
-    am -ia helium
-    am -e pkgforge-dev/ghostty-appimage ghostty aarch64
-    am -e sourcegit-scm/sourcegit sourcegit arm64
-    am -e cryptomator/cryptomator cryptomator aarch64
+    am -ia helium || true
+    am -e pkgforge-dev/ghostty-appimage ghostty aarch64 || true
+    am -e sourcegit-scm/sourcegit sourcegit arm64 || true
+    am -e cryptomator/cryptomator cryptomator aarch64 || true
 }
 
 install_manager() {

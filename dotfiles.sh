@@ -29,7 +29,8 @@ main() {
     os_specific_setup
 
     log_title "Done"
-    log_ok "Machine configured. Restart the terminal."
+    log_ok "Machine configured. Follow steps below."
+    log_info "1. run \`sudo tailscale up\`"
 }
 
 sudo_keepalive() {
@@ -84,6 +85,16 @@ os_specific_setup() {
 shared_packages() {
     install_homebrew
     brew_bundle "$DOTFILES_DIR/Brewfile"
+    install_tailscale
+}
+
+install_tailscale() {
+    if command -v tailscale >/dev/null 2>&1; then
+      log_info "Tailscale already installed"
+      return
+    fi
+    log_step "Installing Tailscale"
+    curl -fsSL https://tailscale.com/install.sh | sh
 }
 
 main "$@"

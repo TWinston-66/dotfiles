@@ -6,6 +6,7 @@ install_linux_apps() {
     log_step "Installing Linux Apps"
     install_manager
     install_zed_linux
+    install_toshy
     am -ia helium || true
     am -e pkgforge-dev/ghostty-appimage ghostty aarch64 || true
     am -e sourcegit-scm/sourcegit sourcegit arm64 || true
@@ -39,3 +40,13 @@ install_zed_linux() {
   log_step "Installing Zed"
   curl -fsSL https://zed.dev/install.sh | sh
 }
+
+install_toshy() {
+    if [ -d "$HOME/.config/toshy" ]; then
+        log_info "Toshy already installed"
+        return
+    fi
+    log_step "Installing Toshy"
+    sh -c "$(curl -L https://raw.githubusercontent.com/RedBearAK/toshy/main/scripts/bootstrap.sh || wget -O - https://raw.githubusercontent.com/RedBearAK/toshy/main/scripts/bootstrap.sh)"
+}
+

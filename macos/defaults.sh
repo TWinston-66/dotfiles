@@ -7,10 +7,10 @@ defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false # Disable pre
 # Fast key repeat
 defaults write NSGlobalDomain KeyRepeat -int 2
 defaults write NSGlobalDomain InitialKeyRepeat -int 15
-defaults write NSGlobalDomain AppleShowAllExtensions -bool true # show file extensions
 
 ### FINDER ###
 defaults write com.apple.finder AppleShowAllFiles -bool true # Show hidden files
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true # show file extensions
 # Show path + status bar
 defaults write com.apple.finder ShowPathbar -bool true
 defaults write com.apple.finder ShowStatusBar -bool true

@@ -12,6 +12,7 @@ brew "starship"
 brew "neovim"
 brew "gh"
 brew "jq"
+brew "btop"
 
 # macOS-only (casks don't exist on Linux)
 if OS.mac?

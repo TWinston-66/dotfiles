@@ -31,10 +31,8 @@ if command -v brew >/dev/null 2>&1; then
 fi
 
 # --- Aliases ---
-alias ls='eza --icons'
-alias ll='eza -la --icons'
-alias cat='bat'
-alias g='git'
-alias vim='nvim'
+alias ls='eza --icons -a'
+alias ll='eza -la --icons --git --header'
+alias bat='bat --paging=never'
 
 export PATH="$HOME/.local/bin:$PATH"

@@ -7,10 +7,21 @@ install_linux_apps() {
     install_manager
     install_zed_linux
     install_toshy
-    am -ia helium || true
-    am -e pkgforge-dev/ghostty-appimage ghostty aarch64 || true
-    am -e sourcegit-scm/sourcegit sourcegit arm64 || true
-    am -e cryptomator/cryptomator cryptomator aarch64 || true
+
+    am_install helium      am -ia helium
+    am_install ghostty     am -e pkgforge-dev/ghostty-appimage ghostty "$DOTFILES_ARCH"
+    am_install sourcegit   am -e sourcegit-scm/sourcegit sourcegit "$DOTFILES_ARCH_ALT"
+    am_install cryptomator am -e cryptomator/cryptomator cryptomator "$DOTFILES_ARCH"
+}
+
+am_install() {
+  local name="$1"; shift
+  if command -v "$name" >/dev/null 2>&1; then
+    log_info "$name already installed"
+    return
+  fi
+  log_step "Installing $name"
+  "$@" || log_err "Failed to install $name — continuing"
 }
 
 install_manager() {
@@ -47,6 +58,8 @@ install_toshy() {
         return
     fi
     log_step "Installing Toshy"
-    sh -c "$(curl -L https://raw.githubusercontent.com/RedBearAK/toshy/main/scripts/bootstrap.sh || wget -O - https://raw.githubusercontent.com/RedBearAK/toshy/main/scripts/bootstrap.sh)"
+    local bootstrap
+    bootstrap="$(curl -fsSL https://raw.githubusercontent.com/RedBearAK/toshy/main/scripts/bootstrap.sh)"
+    sh -c "$bootstrap"
 }
 

@@ -13,10 +13,16 @@ check_sudo() {
         return
     fi
 
-    sudo tee "$SUDO_LOCAL" > /dev/null <<'EOF'
+    if [ -f "$SUDO_LOCAL" ]; then
+        log_step "Adding pam_tid to existing $SUDO_LOCAL"
+        printf 'auth       sufficient     pam_tid.so\n' | sudo tee -a "$SUDO_LOCAL" > /dev/null
+    else
+        log_step "Creating $SUDO_LOCAL"
+        sudo tee "$SUDO_LOCAL" > /dev/null <<'EOF'
 # sudo_local: local config file which survives system update and is included for sudo
 auth       sufficient     pam_tid.so
 EOF
+    fi
 }
 
 check_sudo

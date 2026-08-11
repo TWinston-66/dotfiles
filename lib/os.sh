@@ -10,8 +10,12 @@ detect_os() {
   esac
   export DOTFILES_OS
 
-  DOTFILES_ARCH="$(uname -m)"
-  export DOTFILES_ARCH
+  case "$(uname -m)" in
+    arm64|aarch64) DOTFILES_ARCH="aarch64"; DOTFILES_ARCH_ALT="arm64" ;;
+    x86_64|amd64)  DOTFILES_ARCH="x86_64";  DOTFILES_ARCH_ALT="amd64" ;;
+    *) echo "Unsupported architecture: $(uname -m)" >&2; exit 1 ;;
+  esac
+  export DOTFILES_ARCH DOTFILES_ARCH_ALT
 
   if [ "$DOTFILES_OS" = "linux" ]; then
     if command -v apt-get >/dev/null 2>&1; then

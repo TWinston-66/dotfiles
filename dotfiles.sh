@@ -37,7 +37,11 @@ main() {
 
 sudo_keepalive() {
   sudo -v
-  while true; do sudo -n true; sleep 120; kill -0 "$$" || exit; done 2>/dev/null &
+  while true; do
+    sleep 120
+    kill -0 "$$" 2>/dev/null || exit
+    sudo -n true
+  done 2>/dev/null &
 }
 
 os_specific_setup() {

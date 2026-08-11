@@ -14,7 +14,7 @@ brew "gh"
 brew "jq"
 brew "btop"
 
-# macOS-only (casks don't exist on Linux)
+# macOS-only
 if OS.mac?
   cask "zed"
   cask "ghostty"

@@ -9,19 +9,32 @@ stow_packages() {
 
   local backup_dir="$HOME/.dotfiles-backup/$(date +%Y%m%d%H%M%S)"
   local backed_up=0
-  local pkg file rel target
+  local pkg file rel target resolved
 
   for pkg in "${DOTFILES_STOW_PACKAGES[@]}"; do
     while IFS= read -r file; do
       rel="${file#"$DOTFILES_DIR/$pkg/"}"
       target="$HOME/$rel"
-      if [ -e "$target" ] && [ ! -L "$target" ]; then
+
+      if [ -L "$target" ]; then
+        # Symlinks already pointing into this repo are stow's own; --restow
+        # refreshes them. Anything else (an old clone location, a hand-made
+        # link, a dangling link) makes stow abort, so move it aside.
+        resolved="$(readlink -f "$target" 2>/dev/null || true)"
+        case "$resolved" in
+          "$DOTFILES_DIR"/*) continue ;;
+        esac
+        log_info "Backing up foreign symlink $target -> $(readlink "$target")"
+      elif [ -e "$target" ]; then
         log_info "Backing up existing $target"
-        mkdir -p "$backup_dir/$(dirname "$rel")"
-        mv "$target" "$backup_dir/$rel"
-        backed_up=1
+      else
+        continue
       fi
-    done < <(find "$DOTFILES_DIR/$pkg" -type f)
+
+      mkdir -p "$backup_dir/$(dirname "$rel")"
+      mv "$target" "$backup_dir/$rel"
+      backed_up=1
+    done < <(find "$DOTFILES_DIR/$pkg" \( -type f -o -type l \))
   done
 
   if [ "$backed_up" -eq 1 ]; then

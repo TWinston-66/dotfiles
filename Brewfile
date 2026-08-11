@@ -13,6 +13,7 @@ brew "neovim"
 brew "gh"
 brew "jq"
 brew "btop"
+brew "uv"
 
 # macOS-only casks
 if OS.mac?

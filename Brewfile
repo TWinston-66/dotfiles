@@ -14,6 +14,7 @@ brew "gh"
 brew "jq"
 brew "btop"
 brew "uv"
+brew "go"
 
 # macOS-only casks
 if OS.mac?

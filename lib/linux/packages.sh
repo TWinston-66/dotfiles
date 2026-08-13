@@ -12,6 +12,9 @@ install_linux_apps() {
     am_install ghostty     am -e pkgforge-dev/ghostty-appimage ghostty "$DOTFILES_ARCH"
     am_install sourcegit   am -e sourcegit-scm/sourcegit sourcegit "$DOTFILES_ARCH_ALT"
     am_install cryptomator am -e cryptomator/cryptomator cryptomator "$DOTFILES_ARCH"
+    # No arch keyword: AM's built-in filter already picks the right asset, and
+    # Obsidian's AppImages carry neither "aarch64" nor "amd64" in their names.
+    am_install obsidian    am -e obsidianmd/obsidian-releases obsidian
 }
 
 am_install() {
@@ -21,7 +24,9 @@ am_install() {
     return
   fi
   log_step "Installing $name"
-  "$@" || log_err "Failed to install $name — continuing"
+  # "am -e" exits 1 even when it succeeds, so check for the binary instead.
+  "$@" || true
+  command -v "$name" >/dev/null 2>&1 || log_err "Failed to install $name — continuing"
 }
 
 install_manager() {

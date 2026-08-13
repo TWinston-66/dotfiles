@@ -23,4 +23,5 @@ if OS.mac?
   cask "helium-browser"
   cask "sourcegit"
   cask "cryptomator"
+  cask "obsidian"
 end

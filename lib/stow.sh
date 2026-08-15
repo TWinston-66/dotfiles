@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-DOTFILES_STOW_PACKAGES=(git zsh zed)
+DOTFILES_STOW_PACKAGES=(git zsh zed ssh)
 
 stow_packages() {
   log_step "Stowing dotfiles"
@@ -17,9 +17,6 @@ stow_packages() {
       target="$HOME/$rel"
 
       if [ -L "$target" ]; then
-        # Symlinks already pointing into this repo are stow's own; --restow
-        # refreshes them. Anything else (an old clone location, a hand-made
-        # link, a dangling link) makes stow abort, so move it aside.
         resolved="$(readlink -f "$target" 2>/dev/null || true)"
         case "$resolved" in
           "$DOTFILES_DIR"/*) continue ;;

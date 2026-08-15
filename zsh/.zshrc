@@ -7,6 +7,15 @@ elif [ -d /home/linuxbrew/.linuxbrew ]; then
   eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"  # Linux
 fi
 
+# --- SSH agent ---
+if [ -f "$HOME/.ssh/id_ed25519" ]; then
+  if [[ "$(uname -s)" == "Darwin" ]]; then
+    ssh-add --apple-use-keychain "$HOME/.ssh/id_ed25519" >/dev/null 2>&1
+  elif command -v keychain >/dev/null 2>&1; then
+    eval "$(keychain add --eval --quiet "$HOME/.ssh/id_ed25519")"
+  fi
+fi
+
 # --- History ---
 HISTFILE=~/.zsh_history
 HISTSIZE=50000

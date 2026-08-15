@@ -16,10 +16,11 @@ curl -fsSL https://raw.githubusercontent.com/TWinston-66/dotfiles/main/bootstrap
 
 ## to-do
 
+- [ ] draw.io
+- [ ] make sure GUIs are being installed on both OSs
 - [ ] detect asahi linux for toshy install
 - [ ] obsidian
 - [ ] claude code
-- [ ] github ssh key
 - [ ] docker
 - [ ] iina 
 - [ ] telegram

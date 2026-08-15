@@ -16,7 +16,10 @@ brew "btop"
 brew "uv"
 brew "go"
 
-# macOS-only casks
+if OS.linux?
+  brew "keychain"
+end
+
 if OS.mac?
   cask "zed"
   cask "ghostty"

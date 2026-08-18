@@ -15,6 +15,10 @@ brew "jq"
 brew "btop"
 brew "uv"
 brew "go"
+brew "docker"
+brew "docker-compose"
+brew "docker-buildx"
+brew "lazydocker"
 
 if OS.linux?
   brew "keychain"
@@ -27,4 +31,9 @@ if OS.mac?
   cask "sourcegit"
   cask "cryptomator"
   cask "obsidian"
+  cask "drawio"
+  cask "telegram"
+  cask "docker-desktop"
+  cask "iina"
+  cask "tor-browser"
 end

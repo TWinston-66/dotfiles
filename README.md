@@ -10,23 +10,12 @@ Keeps the setups of multiple personal macOS/Linux machines in sync. Fully idempo
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/TWinston-66/dotfiles/main/bootstrap.sh | bash
+```
+
+```bash
 # to update, pull repo, then...
 ./dotfiles.sh && am -u
 ``` 
-
-## to-do
-
-- [ ] draw.io
-- [ ] make sure GUIs are being installed on both OSs
-- [ ] detect asahi linux for toshy install
-- [ ] obsidian
-- [ ] claude code
-- [ ] docker
-- [ ] iina 
-- [ ] telegram
-- [ ] tor 
-- [ ] transmission
-- [ ] pi.dev
 
 ---
 

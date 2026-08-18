@@ -3,7 +3,8 @@
   "restore_on_startup": "last_session",
   "auto_install_extensions": {
     "codebook": true,
-    "git-firefly": true
+    "git-firefly": true,
+    "make": true
   },
   "project_panel": {
     "dock": "left"

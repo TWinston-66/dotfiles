@@ -5,6 +5,7 @@ Keeps the setups of multiple personal macOS/Linux machines in sync. Fully idempo
 - [Homebrew](https://brew.sh)
 - [GNU Stow](https://www.gnu.org/software/stow/) 
 - [AppImage Manager](https://github.com/ivan-hc/AM)
+- [AppMan DB](https://portable-linux-apps.github.io/apps.html)
 
 ## Usage
 
@@ -16,7 +17,3 @@ curl -fsSL https://raw.githubusercontent.com/TWinston-66/dotfiles/main/bootstrap
 # to update, pull repo, then...
 ./dotfiles.sh && am -u
 ``` 
-
----
-
-- [AppMan DB](https://portable-linux-apps.github.io/apps.html)

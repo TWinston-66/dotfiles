@@ -9,14 +9,15 @@ install_linux_apps() {
     install_toshy
 
     am_install helium           am -ia helium
-    am_install ghostty          am -e pkgforge-dev/ghostty-appimage ghostty "$DOTFILES_ARCH"
-    am_install sourcegit        am -e sourcegit-scm/sourcegit sourcegit "$DOTFILES_ARCH_ALT"
-    am_install cryptomator      am -e cryptomator/cryptomator cryptomator "$DOTFILES_ARCH"
+    am_install ghostty          am -e pkgforge-dev/ghostty-appimage ghostty
+    am_install sourcegit        am -e sourcegit-scm/sourcegit sourcegit
+    am_install cryptomator      am -e cryptomator/cryptomator cryptomator
     am_install obsidian         am -e obsidianmd/obsidian-releases obsidian
     am_install draw.io          am -ia draw.io
     am_install telegram         am -ia telegram
     am_install tor-browser      am -ia tor-browser
     am_install transmission-gtk am -ia transmission-gtk
+    am_install firefox          am -ia firefox
 }
 
 am_install() {

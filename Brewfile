@@ -37,4 +37,5 @@ if OS.mac?
   cask "iina"
   cask "tor-browser"
   cask "transmission"
+  cask "firefox"
 end

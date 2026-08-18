@@ -15,13 +15,13 @@ brew "jq"
 brew "btop"
 brew "uv"
 brew "go"
-brew "docker"
-brew "docker-compose"
-brew "docker-buildx"
 brew "lazydocker"
 
 if OS.linux?
   brew "keychain"
+  brew "docker"
+  brew "docker-compose"
+  brew "docker-buildx"
 end
 
 if OS.mac?
@@ -36,4 +36,5 @@ if OS.mac?
   cask "docker-desktop"
   cask "iina"
   cask "tor-browser"
+  cask "transmission"
 end

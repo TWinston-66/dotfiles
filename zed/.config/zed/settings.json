@@ -4,7 +4,8 @@
   "auto_install_extensions": {
     "codebook": true,
     "git-firefly": true,
-    "make": true
+    "make": true,
+    "toml": true
   },
   "project_panel": {
     "dock": "left"

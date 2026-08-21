@@ -55,3 +55,7 @@ alias ll='eza -la --icons --git --header'
 alias bat='bat --paging=never'
 
 export PATH="$HOME/.local/bin:$PATH"
+
+
+# Added by Antigravity CLI installer
+export PATH="/Users/winstont/.local/bin:$PATH"

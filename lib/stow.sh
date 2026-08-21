@@ -16,14 +16,17 @@ stow_packages() {
       rel="${file#"$DOTFILES_DIR/$pkg/"}"
       target="$HOME/$rel"
 
-      if [ -L "$target" ]; then
-        resolved="$(readlink -f "$target" 2>/dev/null || true)"
+      if [ -e "$target" ] || [ -L "$target" ]; then
+        resolved="$(realpath "$target" 2>/dev/null || true)"
         case "$resolved" in
-          "$DOTFILES_DIR"/*) continue ;;
+          "$DOTFILES_DIR"/* | "$DOTFILES_DIR") continue ;;
         esac
-        log_info "Backing up foreign symlink $target -> $(readlink "$target")"
-      elif [ -e "$target" ]; then
-        log_info "Backing up existing $target"
+
+        if [ -L "$target" ]; then
+          log_info "Backing up foreign symlink $target -> $(readlink "$target")"
+        else
+          log_info "Backing up existing $target"
+        fi
       else
         continue
       fi

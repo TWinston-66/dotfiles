@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-DOTFILES_STOW_PACKAGES=(git zsh zed ssh ghostty tealdeer)
+DOTFILES_STOW_PACKAGES=(git zsh zed ssh ghostty tealdeer tmux sesh)
 
 stow_packages() {
   log_step "Stowing dotfiles"

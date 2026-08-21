@@ -7,6 +7,11 @@ elif [ -d /home/linuxbrew/.linuxbrew ]; then
   eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"  # Linux
 fi
 
+# --- tmux ---
+if [ -z "$TMUX" ] && command -v tmux >/dev/null 2>&1; then
+  tmux new-session -A -s main && exit
+fi
+
 # --- SSH agent ---
 if [ -f "$HOME/.ssh/id_ed25519" ]; then
   if [[ "$(uname -s)" == "Darwin" ]]; then

@@ -39,6 +39,9 @@ if command -v brew >/dev/null 2>&1; then
   unset _fzf_keybindings
 fi
 
+# --- tealdeer (tldr) ---
+export TEALDEER_CONFIG_DIR="$HOME/.config/tealdeer"
+
 # --- Aliases ---
 alias ls='eza --icons -a'
 alias ll='eza -la --icons --git --header'

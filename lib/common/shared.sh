@@ -36,3 +36,16 @@ install_pi() {
     log_step "Installing pi.dev"
     curl -fsSL https://pi.dev/install.sh | sh
 }
+
+install_tpm() {
+    local tpm_dir="$HOME/.local/share/tmux/plugins/tpm"
+
+    if [ -d "$tpm_dir" ]; then
+      log_info "tpm already installed"
+    else
+      log_step "Installing tpm"
+      git clone --depth 1 https://github.com/tmux-plugins/tpm "$tpm_dir"
+    fi
+
+    run_step "Installing tmux plugins" "$tpm_dir/bin/install_plugins"
+}

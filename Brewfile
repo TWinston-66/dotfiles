@@ -16,6 +16,7 @@ brew "uv"
 brew "go"
 brew "lazydocker"
 brew "tealdeer"
+brew "tmux"
 
 if OS.linux?
   brew "keychain"

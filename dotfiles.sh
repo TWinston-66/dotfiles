@@ -27,6 +27,7 @@ main() {
 
     stow_packages
 
+    install_tpm
     set_default_shell
     os_specific_setup
 

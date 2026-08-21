@@ -12,6 +12,8 @@ if [ -z "$TMUX" ] && command -v tmux >/dev/null 2>&1; then
   tmux new-session -A -s main && exit
 fi
 
+eval "$(fzf --zsh)"
+
 # --- SSH agent ---
 if [ -f "$HOME/.ssh/id_ed25519" ]; then
   if [[ "$(uname -s)" == "Darwin" ]]; then

@@ -4,7 +4,6 @@ return {
     lazy = false,
     build = ':TSUpdate',
     config = function()
-        -- vim filetype -> treesitter parser name, where they differ
         local parser_by_filetype = {
             help = 'vimdoc',
             sh = 'bash',

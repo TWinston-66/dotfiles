@@ -11,6 +11,9 @@ opt.signcolumn = "yes"
 opt.wrap = false
 opt.termguicolors = true
 
+-- Mouse
+opt.mouse = "a"
+
 -- Indentation
 opt.tabstop = 4
 opt.shiftwidth = 4

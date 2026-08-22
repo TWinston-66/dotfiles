@@ -18,6 +18,7 @@ brew "lazydocker"
 brew "tealdeer"
 brew "tmux"
 brew "sesh"
+brew "gitmux"
 
 if OS.linux?
   brew "keychain"

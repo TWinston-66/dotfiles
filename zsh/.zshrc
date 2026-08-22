@@ -9,7 +9,7 @@ fi
 
 # --- tmux ---
 if [ -z "$TMUX" ] && command -v tmux >/dev/null 2>&1; then
-  tmux new-session -A -s main && exit
+  tmux && exit
 fi
 
 eval "$(fzf --zsh)"

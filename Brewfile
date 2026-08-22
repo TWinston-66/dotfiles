@@ -19,6 +19,7 @@ brew "tealdeer"
 brew "tmux"
 brew "sesh"
 brew "gitmux"
+brew "tmux-mem-cpu-load"
 
 if OS.linux?
   brew "keychain"

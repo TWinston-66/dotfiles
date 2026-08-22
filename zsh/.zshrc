@@ -53,6 +53,10 @@ export TEALDEER_CONFIG_DIR="$HOME/.config/tealdeer"
 alias ls='eza --icons -a'
 alias ll='eza -la --icons --git --header'
 alias bat='bat --paging=never'
+alias vim='nvim'
+alias vi='nvim'
+
+export EDITOR="nvim"
 
 export PATH="$HOME/.local/bin:$PATH"
 

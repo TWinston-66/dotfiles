@@ -1,7 +1,7 @@
 
 # Reload -> cmd/ctrl+shift+,
 
-theme = Atom One Dark
+theme = Catppuccin Mocha
 
 font-size = 14
 

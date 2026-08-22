@@ -1,38 +1,20 @@
 return {
-  "lewis6991/gitsigns.nvim",
-  opts = {
-    on_attach = function(bufnr)
-      local gitsigns = require('gitsigns')
+  "echasnovski/mini.diff",
+  version = "*",
+  event = "VeryLazy",
+  config = function()
+    local minidiff = require("mini.diff")
+    
+    minidiff.setup({
+      mappings = {
+        textobject = 'gh',
+        goto_next = ']c',
+        goto_prev = '[c',
+      }
+    })
 
-      local function map(mode, l, r, opts)
-        opts = opts or {}
-        opts.buffer = bufnr
-        vim.keymap.set(mode, l, r, opts)
-      end
-
-      -- Navigation
-      map('n', ']c', function()
-        if vim.wo.diff then
-          vim.cmd.normal({']c', bang = true})
-        else
-          gitsigns.nav_hunk('next')
-        end
-      end, { desc = "Next Git hunk" })
-
-      map('n', '[c', function()
-        if vim.wo.diff then
-          vim.cmd.normal({'[c', bang = true})
-        else
-          gitsigns.nav_hunk('prev')
-        end
-      end, { desc = "Previous Git hunk" })
-
-      -- Actions
-      map('n', '<leader>hs', gitsigns.stage_hunk, { desc = "Stage hunk" })
-      map('n', '<leader>hr', gitsigns.reset_hunk, { desc = "Reset hunk" })
-      map('n', '<leader>hp', gitsigns.preview_hunk, { desc = "Preview hunk" })
-      map('n', '<leader>hb', function() gitsigns.blame_line{full=true} end, { desc = "Blame line" })
-      map('n', '<leader>hd', gitsigns.diffthis, { desc = "Diff against index" })
-    end,
-  }
+    vim.keymap.set('n', '<leader>hs', 'gh_', { remap = true, desc = "Stage hunk" })
+    vim.keymap.set('n', '<leader>hr', 'gH_', { remap = true, desc = "Reset hunk" })
+    vim.keymap.set('n', '<leader>hp', function() minidiff.toggle_overlay(0) end, { desc = "Toggle preview overlay" })
+  end,
 }

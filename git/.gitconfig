@@ -19,18 +19,8 @@
 [color]
     ui = auto
 
-[alias]
-    st = status -sb
-    co = checkout
-    br = branch
-    lg = log --oneline --graph --decorate --all
-
 [include]
     path = ~/.gitconfig.local
-[filter "lfs"]
-	process = git-lfs filter-process
-	required = true
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
+    
 [url "git@github.com:"]
 	insteadOf = https://github.com/

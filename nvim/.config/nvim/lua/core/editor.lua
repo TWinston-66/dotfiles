@@ -1,5 +1,9 @@
 local opt = vim.opt
 
+-- Disable netrw
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 -- Display
 opt.number = true
 opt.relativenumber = true

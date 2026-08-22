@@ -20,6 +20,7 @@ brew "tmux"
 brew "sesh"
 brew "gitmux"
 brew "neovim"
+brew "tree-sitter"
 
 if OS.linux?
   brew "keychain"

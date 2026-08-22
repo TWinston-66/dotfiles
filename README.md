@@ -1,6 +1,6 @@
 # dotfiles
 
-Keeps the setups of multiple personal macOS/Linux machines in sync. Fully idempotent.
+Keeps the setups of personal macOS/Linux machines in sync. Fully idempotent.
 
 - [Homebrew](https://brew.sh)
 - [GNU Stow](https://www.gnu.org/software/stow/) 
@@ -10,10 +10,13 @@ Keeps the setups of multiple personal macOS/Linux machines in sync. Fully idempo
 ## Usage
 
 ```bash
+# bootstrap
 curl -fsSL https://raw.githubusercontent.com/TWinston-66/dotfiles/main/bootstrap.sh | bash
 ```
 
 ```bash
-# to update, pull repo, then...
-./dotfiles.sh && am -u
+# updating
+./dotfiles.sh
+am -u 
+brew update && brew upgrade
 ``` 

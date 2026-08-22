@@ -14,6 +14,7 @@ return {
                 "rust_analyzer",
                 "ts_ls",
                 "bashls",
+                "lua_ls",
             },
         })
 

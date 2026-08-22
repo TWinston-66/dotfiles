@@ -22,6 +22,7 @@ brew "sesh"
 brew "gitmux"
 brew "neovim"
 brew "tree-sitter"
+brew "lazygit"
 
 if OS.linux?
   brew "keychain"
